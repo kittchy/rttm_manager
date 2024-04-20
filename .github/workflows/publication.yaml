@@ -6,19 +6,19 @@ on:
       - main
 
 jobs:
-  pytest:
+  publish:
+    env:
+      PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
     name: Publication Package to Pypi
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Install Rye
-        uses: baptiste0928/cargo-install@v2
-        with:
-          crate: rye
-          git: https://github.com/mitsuhiko/rye
-          branch: main
+      - name: Rye
+        uses: sksat/setup-rye@v0.8.0
       - name: Install Dependencies
         run: rye sync
-      - name: Publish Package to Pypi
-        run: make publish
+      - name: echo
+        run: echo "token == ${{ env.PYPI_TOKEN }}"
+      - name: Build and Publish Package to Pypi
+        run: rye build --wheel --out target && rye publish --token ${{ env.PYPI_TOKEN }} --yes target/*

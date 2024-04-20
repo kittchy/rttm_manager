@@ -11,5 +11,8 @@ publish:
 test:
 	rye run pytest -s -v --cov
 
+lint:
+		rye run ruff check .
+
 actions:
 	act pull_request --container-architecture linux/amd64 --remote-name upstream
