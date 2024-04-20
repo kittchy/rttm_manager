@@ -1,0 +1,22 @@
+name: Publish
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    name: Publication Package to Pypi
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Rye
+        uses: sksat/setup-rye@v0.8.0
+      - name: Install Dependencies
+        run: rye sync
+      - name: echo
+        run: echo "token == ${{ env.PYPI_TOKEN }}"
+      - name: Build and Publish Package to Pypi
+        run: rye build --wheel --out target && rye publish --token ${{ secrets.PYPI_TOKEN }} --yes target/*

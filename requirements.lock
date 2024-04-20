@@ -8,21 +8,3 @@
 #   with-sources: false
 
 -e file:.
-coverage==7.4.4
-    # via pytest-cov
-exceptiongroup==1.2.1
-    # via pytest
-iniconfig==2.0.0
-    # via pytest
-packaging==24.0
-    # via pytest
-pluggy==1.4.0
-    # via pytest
-pytest==8.1.1
-    # via pytest-cov
-    # via rttm-manager
-pytest-cov==5.0.0
-    # via rttm-manager
-tomli==2.0.1
-    # via coverage
-    # via pytest
