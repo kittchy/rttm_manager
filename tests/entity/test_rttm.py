@@ -1,4 +1,4 @@
-from rttm.entity.rttm import RTTM
+from rttm_manager.entity.rttm import RTTM
 
 
 def test_rttm_object():
