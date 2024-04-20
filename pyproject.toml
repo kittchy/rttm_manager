@@ -1,0 +1,27 @@
+[project]
+name = "rttm"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "kittchy", email = "drums.radwimps203@gmail.com" }
+]
+dependencies = [
+    "pytest>=8.1.1",
+    "pytest-cov>=5.0.0",
+]
+readme = "README.md"
+requires-python = ">= 3.10"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/rttm"]
