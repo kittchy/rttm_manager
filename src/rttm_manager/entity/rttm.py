@@ -1,15 +1,15 @@
-from dataclasses import dataclass
+from typing import Union
+from pydantic import BaseModel
 
 
-@dataclass
-class RTTM:
+class RTTM(BaseModel, frozen=True):
     type: str
     file_id: str
     channel_id: int
     turn_onset: float
     turn_duration: float
-    orthography_field: str
-    speaker_type: str
     speaker_name: str
-    confidence_score: str
-    signal_lookahead_time: str
+    orthography_field: Union[str, None] = None
+    speaker_type: Union[str, None] = None
+    confidence_score: Union[float, None] = None
+    signal_lookahead_time: Union[float, None] = None
