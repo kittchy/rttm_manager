@@ -23,7 +23,7 @@ jobs:
       - name: Test
         run: rye run pytest --cov --cov-report=xml
       - name: Code coverage
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v7
         with:
           fail_ci_if_error: true
           token: ${{ secrets.CODECOV_TOKEN }}
